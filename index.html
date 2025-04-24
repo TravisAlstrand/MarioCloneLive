@@ -66,6 +66,13 @@
         productName: "Mario Clone",
         productVersion: "1.0",
         showBanner: unityShowBanner,
+        errorHandler: function (error, file, line) {
+          console.error("Unity Error:", error, "in", file, "at line", line);
+          unityShowBanner(error, "error");
+        },
+        cacheControl: function (url) {
+          return "no-store";
+        },
       };
 
       // By default, Unity keeps WebGL canvas render target size matched with
